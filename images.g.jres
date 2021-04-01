@@ -1,0 +1,57 @@
+{
+    "image3": {
+        "data": "hwQQABYAAAAAAAAAAADw/////wAAu7u7u7vMu7u7+wCwEd3d3d3Ly8y8/wAbEc3MzNzL27u8/wAbEWxmZsbL27u8/wAbEWzRZsbL27u8/wAbEWxtZsbL27u8/wAbEWxmZsbL27u8/wAbEWxmZsbL27u8/wAbEWxmZsbL27u8/wAbEWxmZsbL27u8/wAbEWxmZsbL27u8/wAbEc3MzNzL27u8/wCwEd3d3d3L28y8/wAAu7u7u7vMu7u7+wAAAAAAAADw/////wA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "tv"
+    },
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAPAPAAAAAPD///7gRAAA/+/v7k9NAPD/Lv/k/v8A8O/yv9EuQv//4vL+3yRC/y/i8k7dJFIPL+LyTt0kUg//4vL+3yRC//Dv8r/RLkL/8P8u/+T+/wAA/+7v7k9NAADw///+4EQAAAAA8A8AAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "player"
+    },
+    "image6": {
+        "data": "hwQIAAgAAAAAAAAAACAAACAiDwAgIAAAICIAACAgDwAgIgAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy0"
+    },
+    "image5": {
+        "data": "hwQIAAgAAAAAAAAAAADQAAAACvDwDQoK392qAPANCgoAAArwANAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy2"
+    },
+    "image7": {
+        "data": "hwQLAAsAAAAARPREBAAAAPBE9ET0AAAARE/0RE8EAABE9P//RAQAAERE9EREBAAA//////8PAABERPRERAQAAET0//9EBAAARE/0RE8EAADwRPRE9AAAAABE9EQEAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy3"
+    },
+    "image9": {
+        "data": "hwQIAAgAAAARL/J3ES/yd/////8ij/gRIo/4Ef////9VX/VEVV/1RA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy5"
+    },
+    "image8": {
+        "data": "hwQIAAgAAAAABAAAAIQAAFCEBwBfhCcAUIQHAACEAAAABAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy4"
+    },
+    "image2": {
+        "data": "hwQQABAAAACwuwu7u7u7C+vuu8zM6867S+S7zMzr7rtLRLvMzOvuC0tEu8zM6+4LS0S7zMzr7gtLRLvLzOvuC0tEzbzM6+4LS0TNvMzr7gtLRLvLzOvuC0tEu8zM6+4LS0S7zMzr7gtLRLvMzOvuC0vku8zM6+67S+67zMzrzruwuwu7u7u7Cw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "chestEmpty"
+    },
+    "image10": {
+        "data": "hwQQABAAAACwuwu7u7u7C+vuu6xK6867S+S7rETr7rtLRLt8d+vuC0tEu8x36+4LS0S7zIjr7gtLRLvLjOvuC0tEzby86+4LS0TNvLvr7gtLRLubmevuC0tEu8xm6+4LS0S7zGbr7gtLRLs8w+vuC0vkuzwj6+67S+67PCLrzruwuwu7u7u7Cw==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "chestFull"
+    },
+    "image4": {
+        "data": "hwQIAAgAAAAAAFUFAFBVBQAAVQUAUFUFAABVBQBQVQUAAFUFAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "toy1"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
