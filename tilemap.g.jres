@@ -10,15 +10,56 @@
         "tilemapTile": true,
         "displayName": "carpet"
     },
+    "tile2": {
+        "data": "hwQQABAAAAAAAAAAAAAAALC7u7u7u7u7G9Hd3d27u7sb0czM3LsRARvBZmbGvfEBG8EWbca98QEbwdZmxr3xARvBZmbGvfEBG8FmZsa98QEbwWZmxr3xARvBZmbGvfEBG8FmZsa98QEb0czM3LvxARvR3d3du7u7sLu7u7u7u7sAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "computer"
+    },
+    "tile3": {
+        "data": "hwQQABAAAADg7u7u7u7uDgCZmZmZmZnuAJmZmZmZme4AmZmZmZmZAACZmZmZmZkAAJmZmZmZmQAAmZmZmZmZAACZmZmZmZkAAJmZmZmZmQAAmZmZmZmZAACZmZmZmZkAAJmZmZmZmQAAmZmZmZmZAACZmZmZmZkAAJmZmZmZmQAAmZmZmZmZAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bedLeft"
+    },
+    "tile4": {
+        "data": "hwQQABAAAAAAmZmZmZmZAACZmZmZmZkAAJ+ZmZmZ+QAAn5mZmZn5AAD///////8AAN3d3d3d3QAA3R0REdHdAADdEREREd0AAN0RERER3QAA3RERERHdAADdEREREd0AAN0RERER3QAA3R0REdHd7gDu7u7u7u7uAO7u7u7u7g7w/////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "bedRight"
+    },
+    "tile5": {
+        "data": "hwQQABAAAAAAAAAAAAAAALC7u7u7u7u7G9Hd3d27u7sb0czM3LsRARvB6XnHvfEBG8Hpece98QEbwZl5x73xARvBmXnHvfEBG8GZKMe98QEbwZl5x73xARvB6XnHvfEBG8Hpece98QEb0czM3LvxARvR3d3du7u7sLu7u7u7u7sAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "computer0"
+    },
+    "tile6": {
+        "data": "hwQQABAAAAAA8P//////DwDwREREREQPAPBERERERA8A8EREREREDwDwREREREQPAPD///9PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAP///09EDw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "couchLeft"
+    },
+    "tile7": {
+        "data": "hwQQABAAAAAAAP///09EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwDw////T0QPAPBERERERA8A8EREREREDwDwREREREQPAPBERERERA8A8P//////Dw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "couchRight"
+    },
     "level1": {
         "id": "level1",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAwYTAwMGEwMDAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAwYTAwMDgwMDAxMDEwMTAxMDEwMTAxMDEwMTA0MDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDUwNjAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMjAzMDEwMTAxMDEwMTAxMDEwMTAxMDEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
         "tileset": [
             "myTiles.transparency16",
-            "myTiles.tile1"
+            "myTiles.tile1",
+            "myTiles.tile3",
+            "myTiles.tile4",
+            "sprites.dungeon.stairLarge",
+            "myTiles.tile6",
+            "myTiles.tile7"
         ],
-        "displayName": "level1"
+        "displayName": "bedroom"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

@@ -4,11 +4,23 @@ namespace myTiles {
     export const transparency16 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile1 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile2 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile3 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile4 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile5 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile6 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile7 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
-            case "level1":
-            case "level1":return tiles.createTilemap(hex`0a000a0001010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101`, img`
+            case "bedroom":
+            case "level1":return tiles.createTilemap(hex`0a0008000101010101010101010401010101010101010101010101010101010101010101010105060101010101010101010101010101010101010101010101010101010101010101020301010101010101010101`, img`
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
@@ -17,9 +29,7 @@ namespace myTiles {
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
-. . . . . . . . . . 
-. . . . . . . . . . 
-`, [myTiles.transparency16,myTiles.tile1], TileScale.Sixteen);
+`, [myTiles.transparency16,myTiles.tile1,myTiles.tile3,myTiles.tile4,sprites.dungeon.stairLarge,myTiles.tile6,myTiles.tile7], TileScale.Sixteen);
         }
         return null;
     })
@@ -29,6 +39,18 @@ namespace myTiles {
             case "transparency16":return transparency16;
             case "carpet":
             case "tile1":return tile1;
+            case "computer":
+            case "tile2":return tile2;
+            case "bedLeft":
+            case "tile3":return tile3;
+            case "bedRight":
+            case "tile4":return tile4;
+            case "computer0":
+            case "tile5":return tile5;
+            case "couchLeft":
+            case "tile6":return tile6;
+            case "couchRight":
+            case "tile7":return tile7;
         }
         return null;
     })
