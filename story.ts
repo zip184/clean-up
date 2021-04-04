@@ -33,7 +33,7 @@ class TalkSequence {
 }
 
 function tizzyBedTime() {
-    const talk = new TalkSequence(100, 6);
+    const talk = new TalkSequence(100, 18);
     talk.showText("Mom: Tizzy!", 1200, 300, () => {
     talk.showText("Time for bed!", 2500, 300, () => {});
     });

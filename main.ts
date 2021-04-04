@@ -8,7 +8,7 @@ namespace SpriteKind {
 // --- Constants ---
 const DEBUG_MODE = false;
 const DISABLE_OPENING = false;
-const TIME_LIMIT = 50;
+const TIME_LIMIT = 55;
 const TOY_CARRY_CAPACITY = 3;
 const MIN_TOY_PLACEMENT_DISTANCE = 20
 const TOY_COUNT = DEBUG_MODE ? 1 : 40;
@@ -19,7 +19,7 @@ const MON_X_SPEED = 50;
 const MON_Y_SPEED = 50;
 const SWITCH_DIR_TIME = 1500;
 const CHECK_POS_TIME = 200;
-const TIME_BEFORE_RETURNING = 9000;
+const TIME_BEFORE_RETURNING = DEBUG_MODE ? 3000 : 9000;
 const DROP_UNICORN_TIME = 1500;
 // -------------
 
