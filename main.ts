@@ -1,11 +1,29 @@
 namespace SpriteKind {
-    export const Container = SpriteKind.create();
-    export const Toy = SpriteKind.create();
-    export const Voice = SpriteKind.create();
-    export const VideoGame = SpriteKind.create();
+    export const Container = SpriteKind.create()
+    export const Toy = SpriteKind.create()
+    export const Voice = SpriteKind.create()
+    export const VideoGame = SpriteKind.create()
 }
 
-let toyImages: Image[] = [
+// --- Constants ---
+const DEBUG_MODE = false;
+const DISABLE_OPENING = false;
+const TIME_LIMIT = 50;
+const TOY_CARRY_CAPACITY = 3;
+const MIN_TOY_PLACEMENT_DISTANCE = 20
+const TOY_COUNT = DEBUG_MODE ? 1 : 40;
+const TIME_BEFORE_UNLEASH = DEBUG_MODE ? 1000 : 10000;
+
+// ---- Tizzy Monster Constants ----
+const MON_X_SPEED = 50;
+const MON_Y_SPEED = 50;
+const SWITCH_DIR_TIME = 1500;
+const CHECK_POS_TIME = 200;
+const TIME_BEFORE_RETURNING = 9000;
+const DROP_UNICORN_TIME = 1500;
+// -------------
+
+const toyImages = [
     assets.image`toy0`,
     assets.image`toy1`,
     assets.image`toy2`,
@@ -17,57 +35,55 @@ let toyImages: Image[] = [
     assets.image`toy8`,
     assets.image`toy9`,
     assets.image`toy10`
-]
+];
 
-// Constants
-const MIN_TOY_PLACEMENT_DISTANCE = 20;
-const TOY_CARRY_CAPACITY = 3;
-const TOY_COUNT = 30;
-const TIME_LIMIT = 35;
-const PLAY_MUSIC = true;
-const DO_OPENING_SEQUENCE = true;
-
-// Game state
 const gameState = {
     toyCarryCount: 0,
     putAwayToys: 0,
+    totalToyCount: TOY_COUNT,
 };
 
-function areTooClose(sprite1: Sprite, sprite2: Sprite) {
-    const xDiff = Math.abs(sprite1.x - sprite2.x);
-    const yDiff = Math.abs(sprite1.y - sprite2.y);
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Container, function (player2, toy) {
+    if (gameState.toyCarryCount < 1) {
+        return;
+    }
+    bin.setImage(assets.image`chestFull`)
+    gameState.putAwayToys += gameState.toyCarryCount;
 
-    const dist = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
+    gameState.toyCarryCount = 0;
+    setCapBar();
 
-    return dist >= MIN_TOY_PLACEMENT_DISTANCE;
-}
+    if (gameState.putAwayToys >= gameState.totalToyCount) {
+            endGame(true);
+        } else {
+            music.thump.playUntilDone()
+            setTimeout(function() {
+                music.thump.playUntilDone();
+            }, 120);
+        }
+    })
 
-function placeToy() {
+function placeToy () {
     const setRandPos = (spr: Sprite) => spr.setPosition(randint(7, 150), randint(8, 115));
-    //const setRandPos = (spr: Sprite) => spr.setPosition(randint(110, 110), randint(35, 35)); // DEBUG
+    
+    let toyImg = toyImages[randint(0, toyImages.length - 1)]
+    let toy = sprites.create(toyImg, SpriteKind.Toy)
+    setRandPos(toy);
+    const isNearTimer = () => toy.y < 20 && toy.x > 40 && toy.x < 90;
 
-    toyImg = toyImages[randint(0, toyImages.length - 1)]
-    toy = sprites.create(toyImg, SpriteKind.Toy)
-    setRandPos(toy)
-
-    while(
-        !areTooClose(toy, cleaner) ||
-        !areTooClose(toy, bin) ||
-        !areTooClose(toy, videoGame)
-    ) {
+    while (areTooClose(toy, cleaner) || areTooClose(toy, bin) || areTooClose(toy, videoGame) || isNearTimer()) {
         setRandPos(toy);
     }
 }
 
-function createToys(num: number) {
-    for (let index = 0; index <= num - 1; index++) {
-        placeToy()
-    }
+function areTooClose (sprite1: Sprite, sprite2: Sprite) {
+    const xDiff = Math.abs(sprite1.x - sprite2.x)
+    const yDiff = Math.abs(sprite1.y - sprite2.y)
+    const dist = Math.sqrt(xDiff ** 2 + yDiff ** 2)
+    return dist < MIN_TOY_PLACEMENT_DISTANCE
 }
 
-const setCapBar = () => capacityBar.value = Math.ceil((gameState.toyCarryCount / TOY_CARRY_CAPACITY) * 100);
-
-function setupCapBar() {
+function setupCapBar () {
     capacityBar = statusbars.create(20, 4, 0)
     capacityBar.attachToSprite(cleaner)
     capacityBar.setColor(0x7, 0x6)
@@ -76,43 +92,28 @@ function setupCapBar() {
 }
 
 // Overlap events
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Toy, function(player: Sprite, toy: Sprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Toy, function (player2, toy) {
     if (gameState.toyCarryCount >= TOY_CARRY_CAPACITY) {
-        // Can't fit anymore toys
         return;
     }
-
-    toy.destroy();
+    toy.destroy()
     gameState.toyCarryCount++;
-    music.baDing.play();
+music.baDing.play()
     setCapBar();
 })
 
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Container, function(player: Sprite, toy: Sprite) {
-    if (gameState.toyCarryCount < 1) {
-        // Not carrying anything
-        return;
+function createToys (num: number) {
+    for (let index = 0; index <= num - 1; index++) {
+        placeToy()
     }
+}
 
-    bin.setImage(assets.image`chestFull`);
-
-    gameState.putAwayToys += gameState.toyCarryCount;
-    gameState.toyCarryCount = 0;
-    setCapBar();
-
-    if (gameState.putAwayToys >= TOY_COUNT) {
-        endGame(true);
-    } else {
-        music.thump.playUntilDone();
-        setTimeout(function() {
-            music.thump.playUntilDone();
-        }, 120);
-    }
-});
+const setCapBar = () => capacityBar.value = Math.ceil((gameState.toyCarryCount / TOY_CARRY_CAPACITY) * 100);
 
 const endGame = (win: boolean) => {
     capacityBar.destroy();
     turnOffWalking(cleaner);
+    tizzy.destoryMon();
 
     cleaner.setPosition(109, 66);
     cleaner.setImage(assets.image`playerUp`);
@@ -127,21 +128,27 @@ const endGame = (win: boolean) => {
             game.over(false);
         });
     }
-    
 }
 
-function startGame() {
+function startGame () {
     turnOnControls(cleaner);
-    setupCapBar();
-    info.startCountdown(TIME_LIMIT);
 
-    if (PLAY_MUSIC) {
+    setupCapBar();
+
+    if (!DEBUG_MODE) {
+        info.startCountdown(TIME_LIMIT);
         singCleanupSong();
     }
-
     info.onCountdownEnd(function() {
         endGame(false);
     });
+
+    setTimeout(function() {
+        tizzy.unleash();
+        tizzy.onDropUnicorn(() => {
+            gameState.totalToyCount++;
+        });
+    }, TIME_BEFORE_UNLEASH);
 }
 
 let toy: Sprite = null
@@ -151,22 +158,21 @@ let capacityBar: StatusBarSprite
 scene.setBackgroundColor(6)
 tiles.setTilemap(tilemap`bedroom`);
 
-let cleaner = sprites.create(assets.image`playerUp`, SpriteKind.Player);
-cleaner.setPosition(80, 48);
-let bin = sprites.create(assets.image`chestEmpty`, SpriteKind.Container);
-bin.setPosition(15, 15);
-let videoGame = sprites.create(assets.image`tvOff`, SpriteKind.VideoGame);
-videoGame.setPosition(80, 24);
-animation.runImageAnimation(videoGame, assets.animation`tvVideoGame`, 200, true);
+let cleaner = sprites.create(assets.image`playerUp`, SpriteKind.Player)
+cleaner.setPosition(80, 48)
+let bin = sprites.create(assets.image`chestEmpty`, SpriteKind.Container)
+bin.setPosition(15, 15)
+let videoGame = sprites.create(assets.image`tvOff`, SpriteKind.VideoGame)
+videoGame.setPosition(80, 24)
+animation.runImageAnimation(videoGame,assets.animation`tvVideoGame`, 200, true);
 
 createToys(TOY_COUNT);
 
-if (DO_OPENING_SEQUENCE) {
+if (!DEBUG_MODE && !DISABLE_OPENING) {
+    game.splash("Clean Up Game!")
     openingSequence(() => {
-        startGame();
+        startGame()
     });
 } else {
-    startGame();
+    startGame()
 }
-
-

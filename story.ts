@@ -32,6 +32,13 @@ class TalkSequence {
     }
 }
 
+function tizzyBedTime() {
+    const talk = new TalkSequence(100, 6);
+    talk.showText("Mom: Tizzy!", 1200, 300, () => {
+    talk.showText("Time for bed!", 2500, 300, () => {});
+    });
+};
+
 function openingSequence(onFinish?: () => void) {
     const talk = new TalkSequence(100, 6);
 

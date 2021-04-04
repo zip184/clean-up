@@ -16,7 +16,8 @@
         "images.g.ts",
         "sound.ts",
         "walk.ts",
-        "story.ts"
+        "story.ts",
+        "tizzy-monster.ts"
     ],
     "testFiles": [
         "test.ts"

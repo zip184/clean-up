@@ -28,12 +28,6 @@
         "tilemapTile": true,
         "displayName": "bedRight"
     },
-    "tile5": {
-        "data": "hwQQABAAAAAAAAAAAAAAALC7u7u7u7u7G9Hd3d27u7sb0czM3LsRARvB6XnHvfEBG8Hpece98QEbwZl5x73xARvBmXnHvfEBG8GZKMe98QEbwZl5x73xARvB6XnHvfEBG8Hpece98QEb0czM3LvxARvR3d3du7u7sLu7u7u7u7sAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "computer0"
-    },
     "tile6": {
         "data": "hwQQABAAAAAA8P//////DwDwREREREQPAPBERERERA8A8EREREREDwDwREREREQPAPD///9PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAN3d3U9EDwAA3d3dT0QPAADd3d1PRA8AAP///09EDw==",
         "mimeType": "image/x-mkcd-f4",
